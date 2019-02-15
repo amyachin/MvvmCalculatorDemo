@@ -1,2 +1,2 @@
 # MvvmCalculatorDemo
-A sample calculator using Mvvm light framework
+A simple calculator bult using Mvvm light framework
