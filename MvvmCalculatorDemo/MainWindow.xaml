@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmCalculatorDemo.Model"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="300"
+        Height="450.541"
         Width="300"
         Title="MVVM Light Application"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -18,15 +19,111 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" >
 
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
+        
+        
+        <StackPanel >
+
+            <TextBlock Text="{Binding Expression}" FontSize="10pt"></TextBlock>
+            <TextBlock Text="{Binding TextOrResult}" FontSize="20pt"></TextBlock>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Command="{Binding ClearCommand }" >
+                    C
+                </Button>
+
+                <Button Command="{Binding OperationCommand}" CommandParameter="{x:Static local:OperationType.Divide}"  Grid.Column="1">
+                    /
+                </Button>
+
+                <Button Command="{Binding OperationCommand}" CommandParameter="{x:Static local:OperationType.Multiply}"  Grid.Column="2">
+                    X
+                </Button>
+
+                <Button Command="{Binding BackspaceCommand }"  Grid.Column="3">
+                    Back
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="7" Grid.Column="0" Grid.Row="1">
+                    7
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="8" Grid.Column="1" Grid.Row="1">
+                    8
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="9" Grid.Column="2" Grid.Row="1">
+                    9
+                </Button>
+
+                <Button Command="{Binding OperationCommand}" CommandParameter="{x:Static local:OperationType.Subtract}" Grid.Column="3" Grid.Row="1" >
+                    -
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="4" Grid.Column="0" Grid.Row="2">
+                    4
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="5" Grid.Column="1" Grid.Row="2">
+                    5
+                </Button>
+
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="6" Grid.Column="2" Grid.Row="2">
+                    6
+                </Button>
+                
+                <Button Command="{Binding OperationCommand}" CommandParameter="{x:Static local:OperationType.Add}"  Grid.Column="3" Grid.Row="2">
+                    +
+                </Button>
+
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="1" Grid.Column="0" Grid.Row="3">
+                    1
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="2" Grid.Column="1" Grid.Row="3">
+                    2
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="3" Grid.Column="2" Grid.Row="3">
+                    3
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="0" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                    0
+                </Button>
+
+                <Button Command="{Binding SymbolCommand }" CommandParameter="." Grid.Column="2" Grid.Row="4">
+                    .
+                </Button>
+
+
+                <Button Command="{Binding EvaluateCommand}" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" >
+                    =
+                </Button>
+
+
+
+            </Grid>
+
+        </StackPanel>
 
     </Grid>
 </Window>

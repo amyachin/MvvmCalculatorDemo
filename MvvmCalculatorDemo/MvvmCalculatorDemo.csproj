@@ -70,11 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Design\DesignDataService.cs" />
-    <Compile Include="Model\DataItem.cs" />
-    <Compile Include="Model\DataService.cs" />
-    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Design\DesignCalculator.cs" />
+    <Compile Include="Model\Calculator.cs" />
+    <Compile Include="Model\Expression.cs" />
+    <Compile Include="Model\ICalculator.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Model\OperationType.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
